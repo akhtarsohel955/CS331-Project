@@ -53,20 +53,6 @@ export const TokenManager = {
   }
 };
 
-// Helper function to get headers with auth token
-function getAuthHeaders(): HeadersInit {
-  const token = TokenManager.getToken();
-  const headers: HeadersInit = {
-    'Content-Type': 'application/json',
-  };
-  
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-  
-  return headers;
-}
-
 // Helper function to get headers for file upload (may or may not have auth)
 function getUploadHeaders(): HeadersInit {
   const token = TokenManager.getToken();

@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
 import { ConversionProvider } from './contexts/ConversionContext'
-import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import ExpenseConverter from './pages/ExpenseConverter'

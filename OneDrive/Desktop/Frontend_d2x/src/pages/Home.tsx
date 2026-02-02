@@ -101,16 +101,30 @@ export default function Home() {
       <header className="glass backdrop-blur-md border-b border-white/20 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-primary-gradient rounded-2xl flex items-center justify-center shadow-lg hover-lift">
-                <span className="text-white font-bold text-xl">D</span>
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              {/* Innovative Excel Logo */}
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 via-green-500 to-teal-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg hover-lift relative overflow-hidden group">
+                {/* Grid pattern background */}
+                <div className="absolute inset-0 opacity-30">
+                  <div className="grid grid-cols-3 grid-rows-3 h-full w-full">
+                    {[...Array(9)].map((_, i) => (
+                      <div key={i} className="border border-white/40"></div>
+                    ))}
+                  </div>
+                </div>
+                {/* Transform arrow icon */}
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 17V7m0 10l-3-3m3 3l3-3M15 7v10m0-10l3 3m-3-3l-3 3" />
+                </svg>
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-purple-800 bg-clip-text text-transparent">
-                  Document to Excel
+                <h1 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-emerald-700 via-green-600 to-teal-700 bg-clip-text text-transparent">
+                  Doc<span className="hidden xs:inline">ument</span> to Excel
                 </h1>
                 {isUserAuthenticated && user && (
-                  <p className="text-sm text-gray-600">Welcome back, {user.name || user.email}!</p>
+                  <p className="text-xs sm:text-sm text-gray-600 truncate max-w-[120px] sm:max-w-none">Welcome, {user.name || user.email}!</p>
                 )}
               </div>
             </div>
@@ -126,14 +140,14 @@ export default function Home() {
                   {/* Reset Stats Button (for testing) */}
                   <button
                     onClick={resetStats}
-                    className="px-4 py-2 text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg hover:bg-white/50 transition-all duration-300"
+                    className="hidden sm:block px-3 py-1.5 text-xs text-gray-500 hover:text-gray-700 border border-gray-200 rounded-lg hover:bg-white/50 transition-all duration-300"
                     title="Reset Statistics"
                   >
-                    Reset Stats
+                    Reset
                   </button>
                   <button
                     onClick={handleLogout}
-                    className="px-6 py-3 text-gray-700 hover:text-gray-900 font-medium border border-gray-300 rounded-xl hover:bg-white/50 transition-all duration-300 backdrop-blur-sm"
+                    className="px-3 py-2 sm:px-6 sm:py-3 text-sm sm:text-base text-gray-700 hover:text-gray-900 font-medium border border-gray-300 rounded-lg sm:rounded-xl hover:bg-white/50 transition-all duration-300 backdrop-blur-sm"
                   >
                     Logout
                   </button>
@@ -142,13 +156,13 @@ export default function Home() {
                 <>
                   <button
                     onClick={handleSignIn}
-                    className="px-6 py-3 text-gray-700 hover:text-gray-900 font-medium border border-gray-300 rounded-xl hover:bg-white/50 transition-all duration-300 backdrop-blur-sm"
+                    className="px-3 py-2 sm:px-6 sm:py-3 text-sm sm:text-base text-gray-700 hover:text-gray-900 font-medium border border-gray-300 rounded-lg sm:rounded-xl hover:bg-white/50 transition-all duration-300 backdrop-blur-sm"
                   >
                     Sign In
                   </button>
                   <button
                     onClick={handleSignUp}
-                    className="px-6 py-3 bg-primary-gradient hover:opacity-90 text-white font-medium rounded-xl transition-all duration-300 shadow-lg hover:scale-105"
+                    className="px-3 py-2 sm:px-6 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-emerald-500 to-green-600 hover:opacity-90 text-white font-medium rounded-lg sm:rounded-xl transition-all duration-300 shadow-lg hover:scale-105"
                   >
                     Sign Up
                   </button>
